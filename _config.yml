@@ -1,22 +1,22 @@
 # Site settings
-title: Hux Blog
-SEOTitle: 黄玄的博客 | Hux Blog
-header-img: img/home-bg.jpg
-email: huxpro@gmail.com
-description: "关于前端与设计、黑客与画家 | 黄玄，Web & Mobile Lover，Front-End Engineer，UX Designer | 这里是 @Hux黄玄 的个人博客，与你一起发现更大的世界。"
-keyword: "黄玄, Hux黄玄, Hux, 鬼栈, huxpro, @huxpro, 黄玄的博客, Hux Blog, 博客, 个人网站, 互联网, 前端, 设计, 产品, 肖玉, Lynn, 肖玉的男朋友"
-url: "https://huangxuan.me"              # your host, for absolute URL
+title: Matsui Blog
+SEOTitle: 松井君的博客 | Matsui Blog
+header-img: http://oj1nt3hgk.bkt.clouddn.com/17-1-24/24691915-file_1485252599099_8c78.png
+email: caoyunxuan57@gmail.com
+description: "未成型的程序员、画手 | 曹云轩，Playstation Worshipper，Front-End Engineer，UX Designer | 这里是 松井君 的个人博客，尚在成长。"
+keyword: "曹云轩, Matsui曹云轩, Matsui, 松井, @貓徒07, 松井君的博客, Matsui Blog, 博客, 个人网站, git, 互联网, Algorithem, JAVA, PYTHON, 设计, 插画, 主机游戏"
+url: "https://git.matsui.world"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
 
 
 # SNS settings
 RSS: false
-weibo_username:     huxpro
-zhihu_username:     huxpro
-github_username:    huxpro
-#twitter_username:  huxpro
-facebook_username:  huxpro
+weibo_username:     u/3260352982
+zhihu_username:     song-jing-long-zhi-jie-29
+github_username:    caoyunxuan07
+twitter_username:  caoyunxuan57
+facebook_username:  profile.php?id=100012382236787
 # linkedin_username:  firstname-lastname-idxxxx
 
 
@@ -51,7 +51,7 @@ kramdown:
 #disqus_username: _your_disqus_short_name_
 
 # Duoshuo settings
-duoshuo_username: huxblog
+duoshuo_username: matsuiblog
 # Share component is depend on Comment so we can NOT use share only.
 duoshuo_share: true                     # set to false if you want to use Comment without Sharing
 
@@ -64,16 +64,18 @@ duoshuo_share: true                     # set to false if you want to use Commen
 
 # Google Analytics
 ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
-ga_domain: huangxuan.me
+ga_domain: git.matsui.world
 
 
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "写写代码，做做设计，<br>离开世界之前，一切都是过程"
-sidebar-avatar: /img/avatar-hux.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-about-description: "写写代码，学学设计，<br>全般皆有意，伤悲终换晴"
+sidebar-avatar: http://oj1nt3hgk.bkt.clouddn.com/17-1-24/57106379-file_1485252244038_16e2d.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
-
+# avatar and Favicon
+avatar: http://oj1nt3hgk.bkt.clouddn.com/17-1-24/57106379-file_1485252244038_16e2d.jpg
+favicon: http://oj1nt3hgk.bkt.clouddn.com/17-1-24/24691915-file_1485252599099_8c78.png
 
 # Featured Tags
 featured-tags: true                     # whether or not using Feature-Tags
@@ -90,37 +92,7 @@ service-worker: true
 # Friends
 friends: [
     {
-        title: "Su",
-        href: "http://su.gallery/"
-    },{
-        title: "乱序",
-        href: "http://mida.re/"
-    },{
-        title: "前端外刊评论",
-        href: "http://qianduan.guru/"
-    },{
-        title: "天镶的博客",
-        href: "http://lingyu.wang/"
-    },{
-        title: "Luke 的自留地",
-        href: "http://hmqk1995.github.io"
-    },{
-        title: "Ebn's Blog",
-        href: "http://ebnbin.com/"
-    },{
-        title: "SmdCn's Blog",
-        href: "http://blog.smdcn.net"
-    },{
-        title: "解旻的博客",
-        href: "http://xieminis.me/"
-    },{
-        title: "DHong Say",
-        href: "http://dhong.co"
-    },{
-        title: "尹峰以为",
-        href: "http://ingf.github.io/"
-    },{
-        title: "前端神盾局",
-        href: "http://wepiaofei.github.io/blog/"
+        title: "Cfc",
+        href: "http://crazyforcode.org/"
     }
 ]
