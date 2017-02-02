@@ -1,9 +1,9 @@
 # Site settings
 title: Matsui Blog
 SEOTitle: 松井君的博客 | Matsui Blog
-header-img: http://oj1nt3hgk.bkt.clouddn.com/17-1-24/24691915-file_1485252599099_8c78.png
+header-img: img/header.jpg
 email: caoyunxuan57@gmail.com
-description: "未成型的程序员、画手 | 曹云轩，Playstation Worshipper，Front-End Engineer，UX Designer | 这里是 松井君 的个人博客，尚在成长。"
+description: "未成型的程序员、画手 | 曹云轩, Playstation Worshipper, Java Engineer, Illustrator, Photographer | 这里是 松井君 的个人博客，尚在成长。"
 keyword: "曹云轩, Matsui曹云轩, Matsui, 松井, @貓徒07, 松井君的博客, Matsui Blog, 博客, 个人网站, git, 互联网, Algorithem, JAVA, PYTHON, 设计, 插画, 主机游戏"
 url: "https://git.matsui.world"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
