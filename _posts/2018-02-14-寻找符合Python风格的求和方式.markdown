@@ -1,0 +1,84 @@
+#寻找符合Python风格的求和方式
+__本文摘自《流畅的Python》（《FluentPython》），作者Luciano Ramalho，译者安道 吴珂__
+<br/>
+=============
+###序言
+就像“什么是美”没有确切的答案一样，“什么是Python风格”也没有标准答案。如果回答“地道的Python”，不能让人100%满意，因为对你来说是“地道的”，在我看来却可能不是。但我可以肯定的是，“地道”并不是指使用最鲜为人知的语言特性。
+###先决条件
++ 归约函数（reduce、sum、any、all）将序列或有限的迭代对象变成一个聚合结果
++ reduce函数在目前的更新中已经被收进functools包中了
++ 函数签名```reduce(function, iterable, initializer)```，<br/>其中第三个参数```initializer```是可选的。它避免了空序列抛出异常，如果令了这个参数，将从这个参数开始。(一般为恒等值，如+|^等令为1，+ &令为0)。<br/>```function```是一个接收两个参数的函数。
++ 调用的一般过程为：如序列[1,2,3,4,5]<br/>fun(1,2) _(=a)_<br/>fun(a, 3) _(=b)_<br/>fun(b, 4) _etc..._
+###问题提出
+[Python-list](https://mail.python.org/mailman/listinfo/python-list)上有一篇题为“Pythonic Way to Sum n-th List Element?”(链接似已失效？)的话题与本篇讨论的reduce函数有关。
+该话题发起人Guy Middleton说他不喜欢使用lambda表达式，问如下方案可否改进：
+```python
+>>>my_list = [[1, 2, 3], [40, 50, 60], [9, 8, 7]]
+>>>import functools
+>>>functools.reduce(lambda a,, b: a+b, [sub[1] for sub in my_list])
+60
+```
+
+这段代码包含了：lambda、reduce和列表推导。这对于讨厌lambda和看不上列表推导的人两边不讨好——这两种人都很多。如果使用lambda，或许就不应该使用列表推导——过滤除外，但这不是__过滤__(```(for x in list if x > 0)``` 其中```if```就是过滤表达式)。
+<br/>
+=============
+<br/>本书的作者给出的方案是：
+```python
+>>> functools.reduce(lambda a, b: a + b[1], my_list, 0)
+60
+```
+但作者表示不会在真实代码如此写，(因为他也不__喜欢__lambda表达式)。此处仅仅是为了举例说明__不使用列表推导__怎么做。
+<br/>
+=============
+####第一个答案
+，来自Fernando Perez，IPython的创建者，强调了NumPy支持n维数组和n维切片：
+```python
+>>> import numpy as np
+>>>my_array = np.array(my_list)
+>>>np.sum(my_array[:, 1]
+60
+```
+(即一维全体，二维的下标1元素)
+<br/>
+=============
+####第二个答案
+，Guy Middleton推崇Paul Rubin和Skip Montanaro给出的下述方案：
+```python
+>>> import operator
+>>> functools.reduce(operator.add, my_list, 0)
+60
+```
+其中，```operator```库中包含诸如```add```, ```xor```等常用数字运算函数，包含两个参数
+<br/>
+=============
+####以及
+，EvanSimpson问道:"这样做有什么错？"
+```python
+>>> total = 0
+>>> for sub in my_list:
+...            total += sub[1]
+>>>total
+60
+```
+foreach循环。<br/>许多人都觉得这也很符合__Python风格__。Alex Martelli甚至说，Guido或许就会这么做。<br/>作者喜欢这段代码，更喜欢__David Eppstein__对此给出的评论：
+>如果你想计算列表各个元素的和，写出的代码应该看起来像是在“计算元素之和”，而不是“迭代元素，维护一个变量t，再执行一系列求和操作”。如果不能站在一定高度上表明意图，让语言去关注低层次操作，那么要高级语言干嘛？
+
+之后Alex Martelli又建议：
+> 求和操作经常需要，我不介意Python提供一个这样的内置函数。但是，在我看来，“reduce(operator..add,...”不是好方法（作为一名APL老程序员和FP语言的爱好者，我__应该__喜欢，但我并不喜欢）。
+
+<br/>
+=============
+####随后
+Alex建议提供并实现了```sum()```函数并在之后的Python2.3中内置了。因此，Alex喜欢的句法变成了标准：（__列表推导__，仅能生成list）
+```python
+>>> sum([sub[1] for sub in my_list])
+60
+```
+下一年年末（2004年11月），Python2.4发布，这一版引入了__生成器表达式__。因此，作者建议，当前这个问题最符合Python风格的答案是:（生成任何类型的序列）
+```python
+>>> sum(sub[1] for sub in my_list)
+60
+```
+这样写不仅比reduce函数可读性更强，而且还避免了空序列导致的陷阱：```sum([])```的结果是0，就这么简单<br/>在这次讨论中，Alex Martelli指出，Python2内置的reduce函数成事不足败事有余，因为他推荐的__地道编程方式__难以理解。他的观点最优说服力：Python3把reduce函数移到functools模块中了。
+
+##end

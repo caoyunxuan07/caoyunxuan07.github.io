@@ -1,0 +1,73 @@
+#Python中不定长参数
+测试输入如下，一个tuple，一个dict
+```python
+lls = (78, 'stupid')
+dds = dict(k1=1, k2=2, k3=3, name='stupid', num=76)
+```
+###元组传入固定参数函数
+通过*拆包
+```python
+def unpack(num, word):
+    print('hope num...{}'.format(num))
+    print('hope stupid..'+word)
+	
+unpack(*lls)
+```
+输出如下：
+> hope num...78
+> hope stupid..stupid
+
+<br/><br/>
+###不定长参数*args
+传入元组时仍当作单个参数处理，同上拆包
+```python
+def unpack2(*content):
+    print(repr(content))
+    print(', '.join('hope num...{}'.format(num) for num in content))
+	unpack2(lls)#((78, 'stupid'),)
+```
+值得注意的是
+```python
+	#unpack2(*lls, 96) #SyntaxError: only named arguments may follow *expression
+	unpack2(96, *lls) # 拆包符号仅能作最后一个参数
+	unpack2(*(lls+(1,))) #Solution
+```
+引用[StackOverFlow的一篇回答](https://stackoverflow.com/questions/12720450/unpacking-arguments-only-named-arguments-may-follow-expression)：
+>只允许星号表达式作为参数列表中的最后一项。这将简化拆包代码，并使得允许将星号表达式分配给一个迭代器。这种行为被拒绝了，因为这太令人吃惊了。（违反了'最少惊讶原则'）
+
+但这种情况只会出现在Python2中。
+Python3有“仅限关键字参数”
+	>>> def f(a, *, b):
+	···            return a, b
+	···
+	>>> f(1, b=2)
+	(1,2)
+<br/><br/>
+### 不定长参数/dict的拆包表达式：**args
+\*\*dict将每个键值对元素作为单个元素作为参数传入。<br/>
+\*\*dict放在形式参数末尾，键值对与其他形式参数名匹配，剩余的存入形参dict。
+```Python
+def depack(func):
+    def unpack3(name, num, **content):
+        print(repr(content)) #{'k3': 3, 'k2': 2, 'k1': 1}
+        print(', '.join(name*time for name,time in content.items())) #k3k3k3, k2k2, k1
+        func(num, name)
+    return unpack3
+
+@depack
+def unpack(num, word):
+    print('hope num...{}'.format(num)) #hope num...76
+    print('hope stupid..'+word) #hope stupid..stupid
+
+unpack(**dds)
+```
+
+ 输出如下：
+ >{'k3': 3, 'k2': 2, 'k1': 1}
+k3k3k3, k2k2, k1
+hope num...76
+hope stupid..stupid
+
+
+
+##end
