@@ -1,5 +1,17 @@
-#寻找符合Python风格的求和方式
-__本文摘自《流畅的Python》（《FluentPython》），作者Luciano Ramalho，译者安道 吴珂__
+---
+layout:     post
+title:      "寻找符合Python风格的求和方式"
+subtitle:   "本文摘自《流畅的Python》（《FluentPython》），作者Luciano Ramalho，译者安道 吴珂"
+date:       2018-01-14 17:00:00
+author:     "Cynaux"
+header-img: "http://oj1nt3hgk.bkt.clouddn.com/DSC_7449.jpg"
+
+catalog: true
+tags:
+    - Python
+---
+
+
 <br/>
 =============
 ###序言

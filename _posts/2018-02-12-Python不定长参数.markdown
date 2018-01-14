@@ -1,3 +1,16 @@
+---
+layout:     post
+title:      "Python中不定长参数"
+subtitle:   " "
+date:       2018-01-12 12:00:00
+author:     "Cynaux"
+header-img: "http://oj1nt3hgk.bkt.clouddn.com/DSC_7449.jpg"
+
+catalog: true
+tags:
+    - Python
+---
+
 #Python中不定长参数
 测试输入如下，一个tuple，一个dict
 ```python
