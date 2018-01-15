@@ -1,4 +1,6 @@
-#Hux Blog
+文章md解析有问题，暂时发在简书（https://www.jianshu.com/u/4258ec8d2302）。之后再看怎么改改
+
+#Used Hux's Blog Model
 
 ###[View Live Hux Blog &rarr;](https://huangxuan.me)
 
